@@ -114,6 +114,10 @@ To support proper Group Policy targeting and structure, I moved the workstation 
 
 <img width="1063" height="829" alt="Screenshot 2026-02-25 133716" src="https://github.com/user-attachments/assets/dec0a9e1-486f-454c-96f9-f92012fc7b7f" />
 
+### Applying GPO to the Workstation
+
+
+
 
 
 
