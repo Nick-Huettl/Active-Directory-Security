@@ -90,7 +90,7 @@ I then created a domain admin (Rick), as this will be needed to join the Windows
 
 I created a clone of a previous Windows 11 VM I had, reset the PC completely, cleaned the disk, and reinstalled Windows 11 locally.
 
-After the initial setup, I changed the preferred DNS in the network settings of the Windows 11 machine to the static IP of the DC. 
+After the initial setup, I changed the preferred DNS in the network settings on the Windows 11 machine to the IP address of the DC. 
 
 To confirm that everything had changed, I verified connectivity with "ipconfig /all" and pinged the DC to confirm proper DNS resolution and network communication.
 
@@ -114,8 +114,66 @@ To support proper Group Policy targeting and structure, I moved the workstation 
 
 <img width="1063" height="829" alt="Screenshot 2026-02-25 133716" src="https://github.com/user-attachments/assets/dec0a9e1-486f-454c-96f9-f92012fc7b7f" />
 
-### Applying GPO to the Workstation
+### Group Policy Security Baseline Deployment
 
+To harden endpoint security, I created a Workstation Security Baseline GPO and linked it to the Workstations OU to ensure consistent security configuration across managed systems.
+
+<img width="1209" height="820" alt="Screenshot 2026-02-26 132814" src="https://github.com/user-attachments/assets/59a4d6b5-3b07-4da9-8d5c-b13a63f9ea31" />
+
+<img width="1028" height="768" alt="Screenshot 2026-02-26 132951" src="https://github.com/user-attachments/assets/7b61ec0f-a77c-4f7a-8edd-439be95b7637" />
+
+### Key Controls Implemented
+
+The baseline focuses on account protection, audit visibility, and endpoint malware defense to strengthen the security posture. These configurations will help to defend against attacks such as brute force attacks, malware, and command-line attacks. Here are some of the controls implemented.
+- Password policy
+- Account lockout
+- Audit logging
+- Process creation logging
+- Command line auditing
+- Windows Defender Antivirus + real time protection
+- Disable guest account status
+
+<img width="1027" height="774" alt="Screenshot 2026-02-26 134201" src="https://github.com/user-attachments/assets/dc306bcf-05d4-4303-9b3d-f296e15deffe" />
+
+<img width="1029" height="773" alt="Screenshot 2026-02-26 134440" src="https://github.com/user-attachments/assets/ccb3d3fc-d249-499b-9111-6c3040096886" />
+
+<img width="1214" height="827" alt="Screenshot 2026-02-26 134652" src="https://github.com/user-attachments/assets/553e22e2-9d96-4a31-8f97-52f6cb2480cb" />
+
+<img width="1211" height="821" alt="Screenshot 2026-02-26 134742" src="https://github.com/user-attachments/assets/02051733-2499-4b64-947d-bc245621cd6f" />
+
+<img width="1193" height="825" alt="Screenshot 2026-02-26 134821" src="https://github.com/user-attachments/assets/168ed75b-817c-4347-9441-8c4ca1c6d6b8" />
+
+<img width="1204" height="826" alt="Screenshot 2026-02-26 134853" src="https://github.com/user-attachments/assets/18410b8e-63de-49b2-a9d4-39911441a685" />
+
+<img width="1227" height="829" alt="Screenshot 2026-02-26 135108" src="https://github.com/user-attachments/assets/934113df-25d5-421d-a89e-2540bd716411" />
+
+<img width="1095" height="821" alt="Screenshot 2026-02-27 112020" src="https://github.com/user-attachments/assets/a058fedd-3438-4122-b145-7bcaccedd504" />
+
+<img width="1117" height="840" alt="Screenshot 2026-02-27 105618" src="https://github.com/user-attachments/assets/dd416402-8ce3-4658-81fb-20d03baa25b3" />
+
+<img width="1074" height="794" alt="Screenshot 2026-02-27 104847" src="https://github.com/user-attachments/assets/87c17de2-a5cf-4a41-8e7e-e412daa99390" />
+
+### Verifying Policies are Implemented + Problem that Occurred
+
+When I tried to force the group policy update, I encountered an error that prevented the policy from updating successfully. This problem was caused by a Kerberos time skew between the workstation and the DC, preventing Group Policy from processing correctly.
+
+To fix this, I found that using the "w32tm /resync" command resyncs the workstation to the DC.
+
+<img width="1097" height="812" alt="Screenshot 2026-02-27 102811" src="https://github.com/user-attachments/assets/143a732c-e3b1-4ab2-a233-f953441511d0" />
+
+<img width="1118" height="817" alt="Screenshot 2026-02-27 102957" src="https://github.com/user-attachments/assets/094ff85b-c15f-4464-a759-9a60e079085a" />
+
+After resynchronizing time, I could successfully force a policy refresh and verify using "gpresult /r /scope computer".
+
+I also verified Windows Defender Antivirus was active and using real-time protection.
+
+<img width="1050" height="833" alt="Screenshot 2026-02-27 113402" src="https://github.com/user-attachments/assets/45928aa8-0b41-46d9-b2f2-b80b992bbb04" />
+
+<img width="1118" height="829" alt="Screenshot 2026-02-27 110336" src="https://github.com/user-attachments/assets/5b7144a7-679f-4130-ae44-2fb76316f778" />
+
+<img width="1114" height="840" alt="Screenshot 2026-02-27 110349" src="https://github.com/user-attachments/assets/e0004604-9629-499a-9c3f-ea92a1616e56" />
+
+With the security baseline successfully applied and validated, the environment is ready for endpoint telemetry collection with Sysmon.
 
 
 
