@@ -6,7 +6,7 @@
 - Windows Server 2022 (Domain Controller)
 - Windows 11 (Domain Workstation)
 - Active Directory Domain Services (AD DS)
-- Group Policy Management (Planned)
+- Group Policy Management
 - Sysmon (Planned)
 - Splunk (Planned)
 
