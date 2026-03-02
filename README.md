@@ -7,7 +7,7 @@
 - Windows 11 (Domain Workstation)
 - Active Directory Domain Services (AD DS)
 - Group Policy Management
-- Sysmon (Planned)
+- Sysmon
 - Splunk (Planned)
 
 ## Objectives
@@ -196,5 +196,26 @@ The SwiftOnSecurity configuration was used to provide broad detection coverage w
 <img width="1087" height="868" alt="Screenshot 2026-02-27 125959" src="https://github.com/user-attachments/assets/9b39f662-d2fa-46df-b0f0-a84511218418" />
 
 Sysmon installation was validated in Event Viewer under Application and Service Logs -> Microsoft -> Windows -> Sysmon -> Operational, confirming endpoint telemetry was generated.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
