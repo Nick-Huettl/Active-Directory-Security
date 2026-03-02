@@ -173,16 +173,28 @@ I also verified Windows Defender Antivirus was active and using real-time protec
 
 <img width="1114" height="840" alt="Screenshot 2026-02-27 110349" src="https://github.com/user-attachments/assets/e0004604-9629-499a-9c3f-ea92a1616e56" />
 
-With the security baseline successfully applied and validated, the environment is ready for endpoint telemetry collection with Sysmon.
+With the workstation security baseline validated, the environment is ready for endpoint telemetry collection with Sysmon.
 
+### Installing Sysmon on Windows 11 Workstation
 
+Before installing Sysmon, I created a snapshot of the current DC and Windows 11 workstation with the applied GPOs.
 
+I then created a new tools directory on the workstation to organize the Sysmon binaries and configuration files and downloaded Sysmon from the official Microsoft Sysinternals website, along with a configuration for Sysmon by SwiftOnSecurity.
 
+The SwiftOnSecurity configuration was used to provide broad detection coverage while reducing unnecessary log noise.
 
+<img width="779" height="518" alt="Screenshot 2026-02-27 122757" src="https://github.com/user-attachments/assets/77c35dc8-e5ec-4a91-b6d8-24ec3899ecff" />
 
+<img width="556" height="419" alt="Screenshot 2026-02-27 122910" src="https://github.com/user-attachments/assets/956f27ad-9d1a-43f4-965c-5ba5ee73d933" />
 
+<img width="1114" height="879" alt="Screenshot 2026-02-27 124106" src="https://github.com/user-attachments/assets/0517f570-8d60-4f12-822f-e3b0e7d76a80" />
 
+<img width="810" height="612" alt="Screenshot 2026-02-27 125321" src="https://github.com/user-attachments/assets/43bc9c8f-61c9-492c-9d21-6376db63751f" />
 
+<img width="1084" height="872" alt="Screenshot 2026-02-27 125552" src="https://github.com/user-attachments/assets/6c05073b-85be-40f3-8ca6-93a2938fd7fd" />
 
+<img width="1087" height="868" alt="Screenshot 2026-02-27 125959" src="https://github.com/user-attachments/assets/9b39f662-d2fa-46df-b0f0-a84511218418" />
+
+Sysmon installation was validated in Event Viewer under Application and Service Logs -> Microsoft -> Windows -> Sysmon -> Operational, confirming endpoint telemetry was generated.
 
 
