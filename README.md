@@ -8,7 +8,7 @@
 - Active Directory Domain Services (AD DS)
 - Group Policy Management
 - Sysmon
-- Splunk (Planned)
+- Splunk
 
 ## Objectives
 
