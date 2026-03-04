@@ -179,7 +179,7 @@ With the workstation security baseline validated, the environment is ready for e
 
 Before installing Sysmon, I created a snapshot of the current DC and Windows 11 workstation with the applied GPOs.
 
-I then created a new tools directory on the workstation to organize the Sysmon binaries and configuration files and downloaded Sysmon from the official Microsoft Sysinternals website, along with a configuration for Sysmon by SwiftOnSecurity.
+I then created a new tools directory on the workstation to organize the Sysmon binaries and configuration files. Sysmon was downloaded from the official Microsoft Sysinternals website, along with a Sysmon configuration from SwiftOnSecurity.
 
 The SwiftOnSecurity configuration was used to provide broad detection coverage while reducing unnecessary log noise.
 
@@ -197,20 +197,83 @@ The SwiftOnSecurity configuration was used to provide broad detection coverage w
 
 Sysmon installation was validated in Event Viewer under Application and Service Logs -> Microsoft -> Windows -> Sysmon -> Operational, confirming endpoint telemetry was generated.
 
+### Creating a Ubuntu Server VM
 
+To support centralized log collection, I created a Ubuntu Server to host the Splunk SIEM.
 
+<img width="1018" height="814" alt="Screenshot 2026-03-03 100713" src="https://github.com/user-attachments/assets/86ceed70-9e22-48d6-a6b6-5e2835a72552" />
 
+<img width="1276" height="888" alt="Screenshot 2026-03-03 100940" src="https://github.com/user-attachments/assets/3da59584-bff9-4fd5-a8af-cd5a1367805a" />
 
+<img width="1286" height="907" alt="Screenshot 2026-03-03 101011" src="https://github.com/user-attachments/assets/b6cfb8d4-dddb-4db2-b9a8-648decdec860" />
 
+<img width="1275" height="900" alt="Screenshot 2026-03-03 101250" src="https://github.com/user-attachments/assets/114c3457-f9d9-4290-9f46-4f61657164a5" />
 
+<img width="1279" height="905" alt="Screenshot 2026-03-03 101339" src="https://github.com/user-attachments/assets/67a74538-e2ed-4f67-aa2f-c63f3d2db24b" />
 
+<img width="1280" height="897" alt="Screenshot 2026-03-03 101455" src="https://github.com/user-attachments/assets/a4bd4396-a63d-4f72-8fe1-a45bb1f5c90f" />
 
+<img width="1280" height="903" alt="Screenshot 2026-03-03 101716" src="https://github.com/user-attachments/assets/4f857b61-200c-4140-898d-89d23e3459ab" />
 
+### Installing Splunk on Linux VM
 
+After deploying the Ubuntu Server, I installed Splunk Enterprise and completed the initial setup.
 
+<img width="1260" height="819" alt="Screenshot 2026-03-03 102301" src="https://github.com/user-attachments/assets/df61cb18-e150-4249-b6c6-01ec37608c00" />
 
+<img width="1287" height="867" alt="Screenshot 2026-03-03 102649" src="https://github.com/user-attachments/assets/5d89689a-0692-44e6-a17e-0b457ce10521" />
 
+<img width="1296" height="563" alt="Screenshot 2026-03-03 102720" src="https://github.com/user-attachments/assets/f27e33fc-e495-4e86-89ff-49af32c6f5fb" />
 
+<img width="1299" height="719" alt="Screenshot 2026-03-03 103555" src="https://github.com/user-attachments/assets/b9b28e14-4d98-449c-87e1-4e1b0283abc5" />
+
+<img width="1292" height="866" alt="Screenshot 2026-03-03 103658" src="https://github.com/user-attachments/assets/39997ff2-55a8-4c14-94cd-a5e23bc3d4a6" />
+
+I also enabled Splunk to start automatically at boot to ensure persistent log collection.
+
+<img width="1291" height="870" alt="Screenshot 2026-03-03 103835" src="https://github.com/user-attachments/assets/7f1a49aa-e5e0-4bf5-baaa-c4b6edcf6a36" />
+
+### Verification & Configurations of Splunk
+
+Once Splunk was running, I verified that I could access it through the Windows workstation and completed initial configurations, such as creating an index and changing the listening port for receiving to 9997. 
+
+<img width="994" height="355" alt="Screenshot 2026-03-03 104620" src="https://github.com/user-attachments/assets/f602ef82-afc5-4117-a181-525cb6c3bfd2" />
+
+<img width="1163" height="838" alt="Screenshot 2026-03-03 105651" src="https://github.com/user-attachments/assets/1324530e-5a3a-4f35-9247-7667510354a3" />
+
+<img width="1045" height="830" alt="Screenshot 2026-03-03 105822" src="https://github.com/user-attachments/assets/64f32147-4e34-4264-9648-2e8b0003d9f5" />
+
+<img width="1096" height="840" alt="Screenshot 2026-03-03 105850" src="https://github.com/user-attachments/assets/f40adb22-12b3-4871-ac97-0df5c8de3706" />
+
+<img width="1093" height="820" alt="Screenshot 2026-03-03 105952" src="https://github.com/user-attachments/assets/6f5cbefb-c4ac-433e-9134-ecac61ba098d" />
+
+### Splunk Universal Forwarder setup
+
+To forward the endpoint telemetry from the Windows workstation to Splunk, I installed the Universal Forwarder and configured it to send Windows Event Logs to the Splunk Server.
+
+<img width="947" height="637" alt="Screenshot 2026-03-03 110331" src="https://github.com/user-attachments/assets/0d662401-f2f7-45d3-9d1b-c02cff5ec00b" />
+
+<img width="1069" height="822" alt="Screenshot 2026-03-03 110733" src="https://github.com/user-attachments/assets/5c26b15a-c620-46b1-a053-e96259494ded" />
+
+<img width="1149" height="823" alt="Screenshot 2026-03-03 111031" src="https://github.com/user-attachments/assets/de3d6f8e-35ec-4c3a-966d-2b980e137ff6" />
+
+<img width="1113" height="816" alt="Screenshot 2026-03-03 111556" src="https://github.com/user-attachments/assets/ef9a87b7-1fd7-42f4-8167-ebf3b95507e4" />
+
+### Forwarding Issue & Sysmon Log Problem
+
+At first, I forgot to rename my "inputs.conf.txt" file to "inputs.conf", so the file appeared as a text document rather than a conf file.
+
+<img width="788" height="590" alt="Screenshot 2026-03-03 112148" src="https://github.com/user-attachments/assets/96faca41-4aae-458a-b6c4-2a35933109de" />
+
+<img width="967" height="513" alt="Screenshot 2026-03-03 112215" src="https://github.com/user-attachments/assets/23fd886a-6414-4d01-aa42-74292928f876" />
+
+<img width="1085" height="817" alt="Screenshot 2026-03-03 112249" src="https://github.com/user-attachments/assets/e1a18b2b-a8f6-4dcd-b01b-aefd94add443" />
+
+At this point, Security, System, and Application logs were all being forwarded to Splunk; however, the Sysmon logs were not. After looking a little deeper, I discovered that it was related to the permissions. To fix this, I had to go into services and change the Splunk Forwarder to a Local System Account.
+
+<img width="964" height="733" alt="Screenshot 2026-03-04 131900" src="https://github.com/user-attachments/assets/c3e9852c-f8d2-4609-8518-0b91eef67785" />
+
+<img width="1113" height="832" alt="Screenshot 2026-03-04 132057" src="https://github.com/user-attachments/assets/55da28af-1280-4743-a1e0-7edb21b91f75" />
 
 
 
