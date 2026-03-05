@@ -285,11 +285,24 @@ This helps normalize logs and extract useful fields like process names, command 
 
 <img width="1092" height="832" alt="Screenshot 2026-03-04 140727" src="https://github.com/user-attachments/assets/843864fe-c19c-46d6-8585-20fffc9266a7" />
 
+### Creating Detection Rules
+
+---
+
+
+
+
+### Attack Simulations
+
+---
 
 
 
 
 
+### Lessons Learned
+
+---
 
 
 
