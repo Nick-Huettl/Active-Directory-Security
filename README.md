@@ -275,6 +275,22 @@ At this point, Security, System, and Application logs were all being forwarded t
 
 <img width="1113" height="832" alt="Screenshot 2026-03-04 132057" src="https://github.com/user-attachments/assets/55da28af-1280-4743-a1e0-7edb21b91f75" />
 
+### Additional Add-Ons for Splunk
+
+To improve log parsing and field extraction, I installed the Splunk and Sysmon add-ons for Microsoft Windows.
+
+This helps normalize logs and extract useful fields like process names, command lines, and user accounts, making it easier to search, analyze, and build detection rules.
+
+<img width="1150" height="822" alt="Screenshot 2026-03-04 140529" src="https://github.com/user-attachments/assets/cb702a84-8ebf-4a1f-8214-b6ff0f96a24f" />
+
+<img width="1092" height="832" alt="Screenshot 2026-03-04 140727" src="https://github.com/user-attachments/assets/843864fe-c19c-46d6-8585-20fffc9266a7" />
+
+
+
+
+
+
+
 
 
 
