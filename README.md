@@ -277,7 +277,7 @@ At this point, Security, System, and Application logs were all being forwarded t
 
 ### Additional Add-Ons for Splunk
 
-To improve log parsing and field extraction, I installed the Splunk and Sysmon add-ons for Microsoft Windows.
+To improve log parsing and field extraction, I installed the Splunk Add-On for Microsoft Windows and the Sysmon Add-On.
 
 This helps normalize logs and extract useful fields like process names, command lines, and user accounts, making it easier to search, analyze, and build detection rules.
 
