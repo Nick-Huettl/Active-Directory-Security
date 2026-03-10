@@ -1,4 +1,4 @@
-# Active Directory Security (WIP)
+# Active Directory Security
 
 ## Tools Used
 
@@ -269,7 +269,7 @@ At first, I forgot to rename my "inputs.conf.txt" file to "inputs.conf", so the 
 
 <img width="1085" height="817" alt="Screenshot 2026-03-03 112249" src="https://github.com/user-attachments/assets/e1a18b2b-a8f6-4dcd-b01b-aefd94add443" />
 
-At this point, Security, System, and Application logs were all being forwarded to Splunk; however, the Sysmon logs were not. After looking a little deeper, I discovered that it was related to the permissions. To fix this, I had to go into services and change the Splunk Forwarder to a Local System Account.
+At this point, Security, System, and Application logs were all being forwarded to Splunk; however, the Sysmon logs were not. After looking a little deeper, I discovered that it was related to the permissions. To fix this, I went into services and changed the Splunk Forwarder to a Local System Account.
 
 <img width="964" height="733" alt="Screenshot 2026-03-04 131900" src="https://github.com/user-attachments/assets/c3e9852c-f8d2-4609-8518-0b91eef67785" />
 
@@ -319,7 +319,17 @@ This helps normalize logs and extract useful fields like process names, command 
 
 <img width="1158" height="839" alt="Screenshot 2026-03-09 202036" src="https://github.com/user-attachments/assets/d0322afc-2221-4a32-89be-481db9f110f6" />
 
+#### Suspicious Command Execution Detected
 
+<img width="1283" height="836" alt="Screenshot 2026-03-10 134637" src="https://github.com/user-attachments/assets/3057cf8d-e04d-42fc-ad44-6e4cb723ed81" />
+
+<img width="1297" height="838" alt="Screenshot 2026-03-10 140612" src="https://github.com/user-attachments/assets/f17f67b9-90cd-407a-9b98-502c6e231d2c" />
+
+<img width="1286" height="829" alt="Screenshot 2026-03-10 140951" src="https://github.com/user-attachments/assets/42a7a29f-2820-4cf7-8b73-f1c57efcacee" />
+
+<img width="1024" height="662" alt="Screenshot 2026-03-10 141100" src="https://github.com/user-attachments/assets/93a6df8b-5059-470f-9d2d-8c70ac255818" />
+
+<img width="1187" height="830" alt="Screenshot 2026-03-10 141145" src="https://github.com/user-attachments/assets/7769f49a-10eb-41e0-9114-f120cfdd5bdf" />
 
 ### Lessons Learned
 
