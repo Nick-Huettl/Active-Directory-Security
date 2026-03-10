@@ -285,18 +285,39 @@ This helps normalize logs and extract useful fields like process names, command 
 
 <img width="1092" height="832" alt="Screenshot 2026-03-04 140727" src="https://github.com/user-attachments/assets/843864fe-c19c-46d6-8585-20fffc9266a7" />
 
-### Creating Detection Rules
+### Creating Detection Rules + Attack Simulations
 
 ---
 
+#### Failed Login Attempts
 
+<img width="1154" height="829" alt="Screenshot 2026-03-09 175700" src="https://github.com/user-attachments/assets/8b9ff57c-634a-40e5-b67a-7caf4863691f" />
 
+<img width="1166" height="826" alt="Screenshot 2026-03-09 180340" src="https://github.com/user-attachments/assets/a3ebb022-662b-4e0a-9dbc-861760f96cbe" />
 
-### Attack Simulations
+<img width="1172" height="845" alt="Screenshot 2026-03-09 181036" src="https://github.com/user-attachments/assets/2ebadff9-ff06-4e75-836f-a8fa0c0cafdc" />
 
----
+<img width="1169" height="828" alt="Screenshot 2026-03-09 181902" src="https://github.com/user-attachments/assets/f265f9a5-0181-4101-a3f7-8eb93db5f261" />
 
+<img width="1155" height="824" alt="Screenshot 2026-03-09 182145" src="https://github.com/user-attachments/assets/3519be67-a815-4113-804c-2f15812d00e6" />
 
+#### New User Created
+
+<img width="1157" height="830" alt="Screenshot 2026-03-09 201035" src="https://github.com/user-attachments/assets/ea83f3a8-6222-4c3c-85e8-aacd739e3958" />
+
+<img width="1151" height="828" alt="Screenshot 2026-03-09 201208" src="https://github.com/user-attachments/assets/12c15a54-241e-4ff9-ba3c-f8bc88399667" />
+
+<img width="1166" height="832" alt="Screenshot 2026-03-09 201522" src="https://github.com/user-attachments/assets/3abe3c21-3065-4fbc-92c0-e8ec0a53f70f" />
+
+<img width="1152" height="833" alt="Screenshot 2026-03-09 201616" src="https://github.com/user-attachments/assets/ea21f984-c0ac-4505-b31d-e633df704eeb" />
+
+#### User Added to Administrator Group
+
+<img width="1175" height="832" alt="Screenshot 2026-03-09 201752" src="https://github.com/user-attachments/assets/30418525-805e-4cc4-add9-77ea7225a3f7" />
+
+<img width="1160" height="825" alt="Screenshot 2026-03-09 201908" src="https://github.com/user-attachments/assets/b8aa21bd-bab0-4bde-8f29-1b9eab7f9140" />
+
+<img width="1158" height="839" alt="Screenshot 2026-03-09 202036" src="https://github.com/user-attachments/assets/d0322afc-2221-4a32-89be-481db9f110f6" />
 
 
 
