@@ -1,5 +1,11 @@
 # Active Directory Security
 
+## Overview
+
+This project demonstrates the creation of a small Active Directory security lab designed to simulate defensive monitoring in a Windows domain environment. The lab was also used to gain hands-on experience creating a domain, configuring group policies, and endpoint security.
+
+After building the domain infrastructure, centralized logging and endpoint telemetry were implemented to monitor system activity and create detection rules for suspicious behavior.
+
 ## Tools Used
 
 - VMware Workstation (Virtualization)
@@ -7,8 +13,8 @@
 - Windows 11 (Domain Workstation)
 - Active Directory Domain Services (AD DS)
 - Group Policy Management
-- Sysmon
-- Splunk
+- Sysmon (Endpoint Monitoring)
+- Splunk (SIEM)
 
 ## Objectives
 
@@ -269,7 +275,7 @@ At first, I forgot to rename my "inputs.conf.txt" file to "inputs.conf", so the 
 
 <img width="1085" height="817" alt="Screenshot 2026-03-03 112249" src="https://github.com/user-attachments/assets/e1a18b2b-a8f6-4dcd-b01b-aefd94add443" />
 
-At this point, Security, System, and Application logs were all being forwarded to Splunk; however, the Sysmon logs were not. After looking a little deeper, I discovered that it was related to the permissions. To fix this, I went into services and changed the Splunk Forwarder to a Local System Account.
+At this point, Security, System, and Application logs were all being forwarded to Splunk; however, the Sysmon logs were not. After looking a little deeper, I discovered that it was related to the permissions. To fix this, I opened Services and set the Splunk Forwarder to run under a Local System Account.
 
 <img width="964" height="733" alt="Screenshot 2026-03-04 131900" src="https://github.com/user-attachments/assets/c3e9852c-f8d2-4609-8518-0b91eef67785" />
 
@@ -287,7 +293,11 @@ This helps normalize logs and extract useful fields like process names, command 
 
 ### Creating Detection Rules + Attack Simulations
 
----
+Now that endpoint logs were being forwarded correctly to Splunk, I could create some detection rules.
+
+These were basic detection rules that monitor common security events that could indicate suspicious or unauthorized activity within the environment.
+
+Each detection rule was also validated by simulating the specific activity on the Windows workstation to ensure the alert was triggered properly.
 
 #### Failed Login Attempts
 
@@ -333,7 +343,7 @@ This helps normalize logs and extract useful fields like process names, command 
 
 ### Lessons Learned
 
----
+
 
 
 
