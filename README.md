@@ -343,12 +343,11 @@ Each detection rule was also validated by simulating the specific activity on th
 
 ### Lessons Learned
 
+Building this lab provided hands-on experience with core components when setting up a domain and implementing security monitoring. Proper configuration is essential for maintaining a secure environment and ensuring reliable log collection and normalization. Even small details such as file names, service permissions, and log access privileges can cause larger issues if not configured correctly.
 
+A new issue I encountered in this lab was a time synchronization problem affecting Kerberos authentication. Kerberos relies on accurate system time between the client and the Domain Controller; otherwise, it breaks trust and can disrupt domain operations. This mismatch prevented my Group Policy changes from applying correctly until the system clocks were synchronized.
 
+Sysmon was also a valuable tool to work with. I had seen Sysmon logs before when reviewing events in Event Viewer; however, I have never installed or forwarded its logs to a SIEM. Implementing Sysmon in this environment demonstrated how endpoint telemetry can provide deeper visibility into system activity, including process creation and command-line executions.
 
-
-
-
-
-
+Finally, building detection rules in Splunk reinforced how effective security monitoring relies on understanding an attacker's mindset. By simulating common attacker behaviors such as brute force attempts, unauthorized user creation, privilege escalation, and suspicious command execution, I could validate that my detection rules generated alerts as intended.
 
