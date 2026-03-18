@@ -6,6 +6,10 @@ This project demonstrates the creation of a small Active Directory security lab 
 
 After building the domain infrastructure, centralized logging and endpoint telemetry were implemented to monitor system activity and create detection rules for suspicious behavior.
 
+## Architecture Diagram
+
+<img width="428" height="500" alt="ADS Lab Architecture drawio (5)" src="https://github.com/user-attachments/assets/edaa984e-d41d-40a7-a0e6-eafc5f3ceba6" />
+
 ## Tools Used
 
 - VMware Workstation (Virtualization)
